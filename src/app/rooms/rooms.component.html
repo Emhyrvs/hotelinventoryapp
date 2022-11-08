@@ -30,10 +30,11 @@ Property Binding
             <th>Room amenities</th>
             <th> CheckInTime</th>
             <th>checkoutTime</th>
+            <th>Rating</th>
         </tr>
         <tr
          [ngClass]="e ? 'even' : 'odd'"
-        *ngFor="let room of roomList | slice: 0:2; let e = even; let o = odd; let i = index"
+        *ngFor="let room of roomList | slice: 0:3; let e = even; let o = odd; let i = index"
         >
             <td>{{i }}</td>
             <td>{{e? "Even" : "Odd"}}</td>
@@ -43,6 +44,8 @@ Property Binding
             <td>{{room.amenties}}</td>
             <td>{{room.checkinTime | date : 'dd/MM/yyyy'}}</td>
             <td>{{room.checkoutTime | date : 'dd/MM/yyyy'}}</td>
+
+            <td>{{room.rating | number : '1.0-0'}}</td>
         </tr>
     </table>
 
