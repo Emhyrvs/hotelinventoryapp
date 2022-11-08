@@ -17,7 +17,7 @@ hiderooms = false;
 
   ngOnInit(): void {
   }
-  
+
 
   rooms : Room =
   {
@@ -46,9 +46,9 @@ hiderooms = false;
   checkinTime: new Date('12-November-2021'),
   checkoutTime: new Date('13-Nov-2021')
   },
-  
-  
-  
+
+
+
   {
     roomNumber: 3,
     roomType: 'Not Deluxe Room',
@@ -58,9 +58,9 @@ hiderooms = false;
   checkinTime: new Date('12-November-2021'),
   checkoutTime: new Date('13-Nov-2021')
   }
- 
 
-  ] 
+
+  ]
 
   toogle()
   {
