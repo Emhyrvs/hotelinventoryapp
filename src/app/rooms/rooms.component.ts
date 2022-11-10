@@ -1,34 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Room } from './rooms';
 import {RoomList} from './rooms';
 @Component({
   selector: 'app-rooms',
   templateUrl: './rooms.component.html',
-  styleUrls: ['./rooms.component.scss']
+  styleUrls: ['./rooms.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RoomsComponent implements OnInit {
 
 hotelName = 'Hilton Hotel';
 numberOfRooms = 10;
-
+roomList : RoomList[] =[]
 hiderooms = false;
 
   constructor() { }
 
   ngOnInit(): void {
-  }
-
-
-  rooms : Room =
-  {
-    totalRooms:20,
-    availableRooms:10,
-    bookedRooms: 5,
-  }
-
-  roomList : RoomList[] =
-  [
-    {
+    this.roomList = [{
       roomNumber: 1,
   roomType: 'Deluxe Room',
   amenties: 'Air Conditioner, Free Wifi, Tv, Bathroom , Kitchem ',
@@ -60,14 +49,45 @@ hiderooms = false;
   checkinTime: new Date('12-November-2021'),
   checkoutTime: new Date('13-Nov-2021'),
   rating: 3.6
+  }];
   }
 
 
-  ]
+  selectedRoom !: RoomList;
+
+  rooms : Room =
+  {
+    totalRooms:20,
+    availableRooms:10,
+    bookedRooms: 5,
+  }
+
+
 
   toogle()
   {
 this.hiderooms = !this.hiderooms;
+  }
+  selectRoom(room: RoomList)
+  {
+    this.selectedRoom = room;
+  }
+
+  addRoom()
+  {
+    const room: RoomList = {
+      roomNumber:4,
+      roomType: 'Deluxe Room',
+      amenties: 'Air Conditioner, Free Wi-Fi, TV, Bathroom, Kitchen',
+      price: 500,
+      photos:'',
+      checkinTime: new Date('11-Nov-2021'),
+      checkoutTime: new Date('12-Nov-2021'),
+      rating: 4.5
+
+    };
+    //this.roomList.push(room);
+    this.roomList = [...this.roomList, room];
   }
 
 }
