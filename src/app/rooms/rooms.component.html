@@ -22,7 +22,7 @@ Property Binding
 
 <div *ngIf="rooms.availableRooms > 0">
     RoomList
-    <app-rooms-list [rooms]="roomList"
+    <app-rooms-list [rooms]="roomList" [title]="title"
     (selectedRoom)="selectRoom($event)"
     ></app-rooms-list>
 

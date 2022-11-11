@@ -67,12 +67,14 @@ hiderooms = false;
   toogle()
   {
 this.hiderooms = !this.hiderooms;
+this.title = "Room List";
   }
   selectRoom(room: RoomList)
   {
     this.selectedRoom = room;
   }
 
+  title = 'Room List';
   addRoom()
   {
     const room: RoomList = {
